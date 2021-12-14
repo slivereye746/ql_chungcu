@@ -7,3 +7,5 @@
     php artisan migrate
     
     php artisan db:seed
+
+ - Run project : php artisan serve
