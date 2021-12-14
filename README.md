@@ -5,4 +5,5 @@
  - Chạy lần lượt trên terminal cmd 2 lệnh: 
  
     php artisan migrate
+    
     php artisan db:seed
