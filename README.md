@@ -6,11 +6,15 @@
 
     composer install
 
- - Nếu dùng command prompt Windows
+
+
+# Nếu dùng command prompt Windows
     copy .env.example .env  or 
 
- - Nếu dùng command terminal
+# Nếu dùng command terminal
     cp .env.example .env
+
+
 
     php artisan key:generate
      
@@ -19,3 +23,9 @@
     php artisan db:seed
 
     php artisan serve
+
+
+# Dùng tài khoản: 
+admin@email.com 
+Password: admin 
+
