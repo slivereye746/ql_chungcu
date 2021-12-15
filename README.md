@@ -1,20 +1,14 @@
 # ql_chungcu
  Quản lý chung cư với Laravel - Basic
 
- - Tạo structure mysql database tên "ql_chungcu"
- - Chạy lần lượt trên terminal cmd các lệnh: 
+- Tạo structure mysql database tên "ql_chungcu"
+- Chạy lần lượt trên terminal cmd các lệnh: 
 
     composer install
 
+    copy .env.example .env  (Nếu dùng command prompt Windows)
 
-
-# Nếu dùng command prompt Windows
-    copy .env.example .env  or 
-
-# Nếu dùng command terminal
-    cp .env.example .env
-
-
+    cp .env.example .env (Nếu dùng command terminal)
 
     php artisan key:generate
      
@@ -27,5 +21,6 @@
 
 # Dùng tài khoản: 
 admin@email.com 
+
 Password: admin 
 
