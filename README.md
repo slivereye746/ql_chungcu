@@ -19,8 +19,6 @@
     php artisan serve
 
 
-# Dùng tài khoản: 
-admin@email.com 
-
-Password: admin 
+# Dùng tài khoản: admin@email.com
+# Password: admin 
 
