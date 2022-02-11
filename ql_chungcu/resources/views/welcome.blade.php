@@ -24,10 +24,11 @@
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-white-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    <a class="text-base text-black-700 dark:text-black-900 underline mr-2" href="/">Report</a>
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                        <a href="{{ url('/dashboard') }}" class="text-base text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                        <a href="{{ route('login') }}" class="text-base text-black-900 dark:text-black-500 underline">Log in</a>
                         <!-- normal register button.... nah we didn't use it here
                         @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
@@ -48,6 +49,7 @@
                 </div>
                 <div>
                     <h1>Website quản lý chung cư với Laravel - Nhóm 6</h1>
+                    <p>Sử dụng tính năng <b>Login</b> để đăng nhập hoặc <b>Report</b> ở góc phải bên trên màn hình!</p>
                 </div>
                 
                 <!--
