@@ -18,10 +18,17 @@ Route::get('/', function () {
 });
 Route::get('/dashboard', ['as'=>'dashboard', 'uses'=>'ApartmentController@index'])->middleware(['auth']);
 
-Route::get('/reports', function () {
-    return view('reports');
-})->middleware(['auth'])->name('reports');
+// Report routing
+Route::get('/report', ['as'=>'report', 'uses'=>'ReportController@add']);
+Route::post('report_add', ['as'=>'report_add', 'uses'=>'ReportController@addconfirm']);
+Route::get('/reports', ['as'=>'reports', 'uses'=>'ReportController@index'])->middleware(['auth']);
+Route::get('reports/{id}', ['as'=>'report_info', 'uses'=>'ReportController@getReport'])->middleware(['auth']);
+Route::get('/report/complete', function () {
+    return view('report_complete');
+});
+Route::DELETE('/reports/delete', ['as'=>'report_delete', 'uses'=>'ReportController@delete'])->middleware(['auth']);
 
+//
 Route::get('/profile', function () {
     return view('profile');
 })->middleware(['auth'])->name('profile');
@@ -41,6 +48,8 @@ Route::DELETE('/customer/delete', ['as'=>'customer_delete', 'uses'=>'CustomerCon
 
 Route::get('customer/{id}', ['as'=>'customer', 'uses'=>'CustomerController@getCustomer'])->middleware(['auth']);
 Route::get('customer/edit/{id}', ['as'=>'customer/edit', 'uses'=>'CustomerController@edit'])->middleware(['auth']);
+
+
 Route::PATCH('customer/updates', ['as'=>'customer/update', 'uses'=>'CustomerController@update'])->middleware(['auth']);
 Route::PATCH('removeapartment', ['as'=>'customer/removeapartment', 'uses'=>'CustomerController@removeApartment'])->middleware(['auth']);
 Route::PATCH('modifyapartment', ['as'=>'customer/modifyapartment', 'uses'=>'CustomerController@modifyApartment'])->middleware(['auth']);

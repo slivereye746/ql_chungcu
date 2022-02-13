@@ -17,9 +17,9 @@ class CreateReportTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('reporter');
-            $table->string('phone')->nullable();
-            $table->string('email');
-            $table->date('report_info');
+            $table->string('phone');
+            $table->string('email')->nullable();
+            $table->longText('report_info');
             $table->timestamps();
         });
     }
