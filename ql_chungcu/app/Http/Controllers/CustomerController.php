@@ -28,7 +28,7 @@ class CustomerController extends Controller
     {
         # code...
         $name = Customer::where("id",$id)->first();
-        return $name->name;
+        return $name;
     }
 
     public function getListApartment($id)
@@ -47,6 +47,7 @@ class CustomerController extends Controller
     {
         $messages = [
             'name.required'=>'Vui lòng nhập tên khách hàng!',
+            'cmnd.required'=>'Vui lòng nhập số CMND!',
             'birthday.required'=>'Vui lòng nhập ngày sinh khách hàng!',
             'phone.required'=>'Vui lòng nhập số liên lạc của khách hàng!',
             'phone.min' => 'Số điện thoại có từ 9 - 13 số!',
@@ -57,6 +58,7 @@ class CustomerController extends Controller
         ];
         $validated = $request->validate([
             'name' => 'required',
+            'cmnd' => 'required|unique:customers,cmnd',
             'birthday'=> 'required',
             'phone'=> 'required|min:9|max:13|unique:customers,phone',
             'email' => 'unique:customers,email',
@@ -65,6 +67,7 @@ class CustomerController extends Controller
 
         $customers = new Customer;
         $customers->name = $request->name;
+        $customers->cmnd = $request->cmnd;
         $customers->birthday = $request->birthday;
         $customers->phone = $request->phone;
         $customers->email = $request->email;
@@ -118,8 +121,9 @@ class CustomerController extends Controller
                             'email' => $request->email,
                             'birthday' => $request->birthday
                         ]);
-        File::delete('images/user_profile/'.$request->id.'.png');
+        
         if ($request->hasFile('img')) {
+            File::delete('images/user_profile/'.$request->id.'.png');
             $image = $request->file('img');
             $storedPath = $image->move('images/user_profile', $request->id.'.png');
         }

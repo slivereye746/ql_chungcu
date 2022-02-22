@@ -38,7 +38,7 @@
                             @if($a->customer_id != NULL)
                             <td class="px-6 py-4 text-base text-gray-500">
                                 <a href="{{route('apartment',['id'=>$a->id])}}">
-                                {{ $customer->findCustomerName($a->customer_id)}}   
+                                {{ $customer->findCustomerName($a->customer_id)->name}}   
                                 </a>
                             </td>
                             @else

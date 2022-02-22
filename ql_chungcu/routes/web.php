@@ -37,8 +37,10 @@ Route::get('/profile', function () {
 Route::get('apartment/{id}', ['as'=>'apartment', 'uses'=>'ApartmentController@getApartment'])->middleware(['auth']);
 
 Route::get('apartment/edit/{id}', ['as'=>'apartment/edit', 'uses'=>'ApartmentController@edit'])->middleware(['auth']);
-
+Route::get('apartment/add_customer/{id}', ['as'=>'apartment/add_customer', 'uses'=>'CustomerScdController@add'])->middleware(['auth']);
+Route::post('addscdconfirm', ['as'=>'customerscd_addconfirm', 'uses'=>'CustomerScdController@addconfirm'])->middleware(['auth']);
 Route::PATCH('apartment/update/{id}', ['as'=>'apartment/update', 'uses'=>'ApartmentController@update'])->middleware(['auth']);
+Route::delete('/apartment/deletescd', ['as'=> 'scd_delete', 'uses'=> 'CustomerScdController@delete'])->middleware(['auth']);
 
 // Customer routing
 Route::get('/customers', ['as'=>'customers', 'uses'=>'CustomerController@index'])->middleware(['auth']);

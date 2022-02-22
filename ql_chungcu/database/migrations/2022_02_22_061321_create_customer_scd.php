@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use PharIo\Manifest\Email;
 
-class CreateCustomer extends Migration
+class CreateCustomerScd extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +13,15 @@ class CreateCustomer extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('customer_scd', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('cmnd');
             $table->string('phone');
             $table->string('email')->nullable();
             $table->date('birthday');
+            $table->unsignedBigInteger('apartment_id')->nullable();
+            $table->foreign('apartment_id')->references('id')->on('apartments');
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class CreateCustomer extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customer');
+        Schema::dropIfExists('customer_scd');
     }
 }

@@ -14,6 +14,7 @@
                     Mã Báo Cáo: {{$report->id}} <br>  
                     Tên Báo Cáo: {{$report->title}} <br>
                     Người Báo Cáo: {{$report->reporter}} <br>
+                    Số CMND: {{$report->cmnd}} <br>
                     Email: {{$report->email}} <br>
                     Số điện thoại: {{$report->phone}}
                     </p>

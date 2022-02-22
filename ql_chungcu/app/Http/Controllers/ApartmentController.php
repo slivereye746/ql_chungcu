@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Apartment;
 use App\Models\Customer;
+use App\Models\Customer_Scd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +20,9 @@ class ApartmentController extends Controller
     public static function getApartment($id)
     {
         $apartment = Apartment::where("id",$id)->first();
-        return view("apartment_detail", compact('apartment'));
+        $customer = Customer_Scd::where("apartment_id",$id)->get();
+        $owner = Customer::where("id",$apartment->customer_id)->first();
+        return view("apartment_detail", compact('apartment','customer', 'owner'));
     }
 
     public function edit($id)

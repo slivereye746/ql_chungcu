@@ -59,10 +59,14 @@
                             <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-40" name="report_info"></textarea>
                         </div><br>
                         <hr><br>
-                        <p class="text-red-800">Vui lòng điền đủ thông tin để chúng tôi có thể liên lạc với bạn trong thời gian sớm nhất!</p> <br>
+                        <p class="text-red-800">Vui lòng điền đúng thông tin cá nhân để tiến hành gửi phản ánh đế ban quản lý!</p> <br>
                         <div class="mb-4">
                             <label class="block text-gray-700 text-base font-bold mb-2" for="reporter">Tên khách hàng</label>
                             <input class="shadow appearance-none border rounded w-full pb-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="reporter" placeholder="Nguyễn Văn A">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-base font-bold mb-2" for="cmnd">Số CMND</label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" name="cmnd">
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700 text-base font-bold mb-2" for="phone">Số điện thoại</label>
@@ -88,6 +92,13 @@
                             </ul>
                         </div>
                         @endif
+                    </div>
+                    <div>
+                        <div class=" bg-green-300 p-3">
+                            <ul class="list-disc list-inside">
+                                {{ $mess }}
+                            </ul>
+                        </div>
                     </div>
                         </div>
                     </div>
