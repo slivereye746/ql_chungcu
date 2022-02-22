@@ -52,7 +52,7 @@ class ReportController extends Controller
         $report->email = $request->email;
         $report->save();
 
-        return redirect('/report/complete');
+        return redirect('/');
     }
 
     public function delete(Request $request)
